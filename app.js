@@ -23,12 +23,12 @@ const homeState = function(page){
    // this adds a jumbotron with new content 
    document.querySelector('#content').innerHTML = `
       <div class="jumbotron">
-         <h1 class="display-4"> </h1>
-         <p class="lead"> </p>
+         <h1 class="display-4">Welcome to this Webpage </h1>
+         <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos doloremque quidem velit officia animi! Cum.</p>
          <hr class="my-4">
-         <p> </p>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, reiciendis?</p>
          <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button"> </a>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn More</a>
          </p>
       </div>
    `;
@@ -59,3 +59,37 @@ const contactState = function (page) {
       </form>
    `;
 }
+
+// Instantiate pageState
+const page = new pageState();
+
+// Initialize the first state
+page.init();
+
+// UI variables for the nav links
+const home = document.getElementById('home');
+const about = document.getElementById('about');
+const contact = document.getElementById('contact');
+
+// Event Listeners
+// Home
+// This uses an arrow function that takes in the event object as its parameter
+home.addEventListener('click', (e)=> {
+   page.change(new homeState);
+
+   e.preventDefault();
+});
+
+// About
+about.addEventListener('click', (e)=> {
+   page.change(new aboutState);
+
+   e.preventDefault();
+});
+
+// Contact 
+contact.addEventListener('click', (e)=> {
+   page.change(new contactState);
+
+   e.preventDefault();
+});
